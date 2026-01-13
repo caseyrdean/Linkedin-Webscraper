@@ -15,6 +15,7 @@ A Python-based web scraper that extracts publicly available LinkedIn profile inf
   - Certifications
 - Generates clean, formatted Markdown output
 - Built with Python and managed with `uv`
+- **Web Interface:** User-friendly Gradio interface for easy profile scraping
 
 ## Prerequisites
 
@@ -68,6 +69,55 @@ This will:
 2. Extract all available public information
 3. Generate a Markdown file named `John_Doe_linkedin_profile.md`
 4. Display a preview of the scraped content
+
+### 🌐 Web Interface (Gradio)
+
+For a user-friendly graphical interface, use the Gradio web app:
+
+```bash
+# Using uv (Recommended)
+uv run python gradio_app.py
+
+# Without uv (if using pip)
+python gradio_app.py
+```
+
+This will launch a web interface at `http://127.0.0.1:7860` where you can:
+- Enter LinkedIn profile URLs in a web form
+- View live scraping progress
+- Preview the markdown output in your browser
+- Download the markdown file with one click
+
+**Gradio Interface Features:**
+- 🖥️ User-friendly web interface
+- 📊 Real-time progress tracking
+- 👁️ Live markdown preview
+- 📥 One-click download of results
+- 💡 Built-in tips and troubleshooting
+- 🎨 Clean, modern UI
+
+**To launch the web interface:**
+```bash
+# Using uv (recommended)
+uv run python gradio_app.py
+
+# Without uv
+python gradio_app.py
+```
+
+The interface will open in your browser at `http://127.0.0.1:7860`
+
+**Gradio Interface Options:**
+```python
+# Launch with default settings (local only)
+uv run python gradio_app.py
+
+# Launch with custom port
+uv run python -c "from gradio_app import launch_app; launch_app(server_port=8080)"
+
+# Create a public shareable link (temporary, not recommended for production)
+uv run python -c "from gradio_app import launch_app; launch_app(share=True)"
+```
 
 ## Output Format
 
@@ -147,7 +197,9 @@ This scraper is designed for educational purposes and works with **publicly avai
 ```
 Linkedin-Webscraper/
 ├── linkedin_scraper.py   # Main scraper module
+├── gradio_app.py        # Gradio web interface
 ├── main.py              # Entry point wrapper
+├── example.py           # Usage examples
 ├── pyproject.toml       # Project configuration and dependencies
 ├── README.md            # This file
 └── .python-version      # Python version specification
@@ -155,9 +207,13 @@ Linkedin-Webscraper/
 
 ## Dependencies
 
+### Core Dependencies
 - `requests` - HTTP library for making requests
 - `beautifulsoup4` - HTML parsing library
 - `lxml` - XML/HTML parser
+
+### Web Interface (Optional)
+- `gradio` - Web interface framework
 
 ## Troubleshooting
 
