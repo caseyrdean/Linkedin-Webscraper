@@ -130,7 +130,7 @@ class GradioLinkedInApp:
         """
 
         # Create the interface
-        with gr.Blocks(css=custom_css, title="LinkedIn Profile Scraper") as app:
+        with gr.Blocks(css=custom_css) as app:
             # Header
             gr.Markdown(
                 """
@@ -293,7 +293,8 @@ def launch_app(share=False, server_name="127.0.0.1", server_port=7860):
         share=share,
         server_name=server_name,
         server_port=server_port,
-        show_error=True
+        show_error=True,
+        inbrowser=True
     )
 
 
